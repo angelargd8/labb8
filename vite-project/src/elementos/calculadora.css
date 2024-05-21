@@ -1,0 +1,47 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    background-color: #3c096c;
+    border-radius: 10%;
+    height: 70vh;
+    width: 70vh;
+    padding: 5%;
+    margin-top: -10%;
+}
+
+.pantalla{
+    width: 80%;
+    height: 15%;
+    background-color: #e0aaff;
+    color: white;
+    font-size: 2em;
+    text-align: right;
+    padding: 10px;
+    border-radius: 1%;
+}
+
+.areaBotones{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+    width: 85%;
+    height: 80%;
+}
+
+
+.boton{
+    background-color: #9d4edd;
+}
+
+.textarea{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    border-color: transparent ;
+    color: #000;
+}

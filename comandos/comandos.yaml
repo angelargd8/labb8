@@ -1,0 +1,19 @@
+#insalar vite
+npm install -g vite
+
+
+#correr el proyecto de
+npm create vite
+
+yes
+
+react
+
+javascript
+
+
+Done. Now run:
+
+  cd vite-project
+  npm install
+  npm run dev
