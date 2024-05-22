@@ -1,0 +1,39 @@
+--------jsdom  
+npm install jsdom
+yarn add jsdom
+
+-------vitets
+npm install -D vitest
+test: {
+  global: true,
+  environment: 'jsdom',
+}
+
+packeges.json:
+"scripts": {
+    "test": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+----------------
+npm install -D vitest jsdom @testing-library/react
+
+en vite.config.js: 
+test: {
+    global: true,
+    environment: 'jsdom',
+  }
+---------------------
+JSON: 
+"scripts": {
+  "test": "vitest",
+  "coverage": "vitest run --coverage"
+}
+
+--------storybook
+npx sb init --builder @storybook/builder-vite
+
+npm run storybook
+run npm run storybook
+
+npm i @storybook/react-vite

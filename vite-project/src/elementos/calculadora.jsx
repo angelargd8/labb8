@@ -1,13 +1,28 @@
 import './calculadora.css'
-import React, {useState} from 'react';
+import  {useState, useEffect} from 'react';
 
 function Calculadora(){
-    const arrayBotones = ['C','<-','-/+','%','7','8','9','*','4','5','6','-','1','2','3','+','0','.','='];
+    const arrayBotones = ['C','<-','-/+','%','7','8','9','*','4','5','6','-','1','2','3','+','0','.','/','='];
     
     const [operacion, setOperacion] = useState('');
 
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            const key = event.key;
+            if (arrayBotones.includes(key)) {
+                handleClickBoton(key);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [operacion]); 
+
     const handleClickBoton= (boton) => {
-        if(boton === 'C'){
+        if(boton === 'C' || boton === 'c' ){
             setOperacion('');
             return;
         }
@@ -21,9 +36,12 @@ function Calculadora(){
         }
         if (boton === '='){
             try{
-                console.log(operacion)
-                console.log(eval(operacion))
-                setOperacion(eval(operacion));
+                let resultado = eval(operacion).toString();
+                if (resultado.length > 9){
+                    resultado = resultado.slice(0, 9);
+                }
+                setOperacion(resultado);
+                
             }catch(e){
                 setOperacion('Error');
             }
@@ -31,6 +49,7 @@ function Calculadora(){
         }
         else{
             setOperacion(operacion + boton);
+            
         }
         
     };
@@ -40,9 +59,16 @@ function Calculadora(){
             {boton}
         </button>
     ));
+
+    useEffect(() => {
+        const textarea = document.getElementById('textarea');
+        textarea.scrollTop = textarea.scrollHeight;
+    }, [operacion]);
+
+
     return(
         <>
-        <div className="contenedor">
+        <div className="contenedor" id="contenedor">
             <div className="pantalla">
                 <textarea value={operacion} readOnly className="textarea" id="textarea">
                 </textarea>
