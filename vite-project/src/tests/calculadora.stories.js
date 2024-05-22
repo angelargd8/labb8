@@ -44,3 +44,10 @@ export const Error = {
         onclick : fn()
     },
 }
+
+export const IncompleteOperation = {
+    args: {
+        operacion: '2+', 
+        onClick: action('onclick event triggered')
+    },
+}
